@@ -17,14 +17,15 @@ jobs:
 
     steps:
       - name: generate snake svg
-        uses: Platane/snk/svg-only@v3
+        uses: Platane/snk@v3
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
             dist/github-snake.svg
+            dist/github-snake.gif
             dist/github-snake-dark.svg?palette=github-dark
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.SNAKE_TOKEN  }}
 
       - name: push svg to output branch
         uses: crazy-max/ghaction-github-pages@v4
